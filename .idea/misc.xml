@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Arttu/AndroidStudioProjects/ETS71002/app/src/main/res/drawable/bg_gradient.xml" value="0.221875" />
+        <entry key="..\:/Users/Arttu/AndroidStudioProjects/ETS71002/app/src/main/res/layout/activity_main.xml" value="0.209375" />
         <entry key="..\:/Users/Arttu/AndroidStudioProjects/ETS71002/app/src/main/res/layout/fragment_search.xml" value="0.1" />
         <entry key="..\:/Users/Arttu/AndroidStudioProjects/ETS71002/app/src/main/res/layout/main_activity.xml" value="0.22" />
         <entry key="..\:/Users/Arttu/AndroidStudioProjects/ETS71002/app/src/main/res/layout/main_fragment.xml" value="0.25" />
