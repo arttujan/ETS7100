@@ -44,9 +44,7 @@ class WeatherFragment : Fragment(){
         override fun onPreExecute() {
             super.onPreExecute()
             /* Showing the ProgressBar, Making the main design GONE */
-            loader.visibility = View.VISIBLE
-            mainContainer.visibility = View.GONE
-            errorText.visibility = View.GONE
+
         }
 
         override fun doInBackground(vararg params: String?): String? {
@@ -85,12 +83,10 @@ class WeatherFragment : Fragment(){
                 temp_max.text = tempMax
 
                 /* Views populated, Hiding the loader, Showing the main design */
-                loader.visibility = View.GONE
-                mainContainer.visibility = View.VISIBLE
+
 
             } catch (e: Exception) {
-                loader.visibility = View.GONE
-                errorText.visibility = View.VISIBLE
+                Log.d("virhe","VIRHE")
             }
         }
     }
