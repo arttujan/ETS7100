@@ -15,9 +15,9 @@ import java.util.*
 import kotlinx.android.synthetic.main.weather_fragment.*
 
 class WeatherFragment : Fragment(){
+    /*Paikkakuntatiedot ja API-key*/
     val TAG = "WeatherFragment"
-    val city: String = "helsinki"
-    val country: String = ",fi"
+    val city: String = "kuopio"
     val api: String = "8118ed6ee68db2debfaaa5a44c832918"
 
     override fun onAttach(context: Context) {
@@ -43,14 +43,13 @@ class WeatherFragment : Fragment(){
     inner class WeatherTask() : AsyncTask<String, Void, String>() {
         override fun onPreExecute() {
             super.onPreExecute()
-            /* Showing the ProgressBar, Making the main design GONE */
 
         }
 
         override fun doInBackground(vararg params: String?): String? {
             var response:String?
             try{
-                response = URL("https://api.openweathermap.org/data/2.5/weather?q=$city$country&units=metric&appid=$api").readText(
+                response = URL("https://api.openweathermap.org/data/2.5/weather?q=$city&units=metric&appid=$api").readText(
                     Charsets.UTF_8
                 )
             }catch (e: Exception){
@@ -64,18 +63,18 @@ class WeatherFragment : Fragment(){
 
             try {
 
-                /* Extracting JSON returns from the API */
+                /* JSON tulee APILTA*/
                 val jsonObj = JSONObject(result)
                 val main = jsonObj.getJSONObject("main")
                 val sys = jsonObj.getJSONObject("sys")
                 val updatedAt:Long = jsonObj.getLong("dt")
-                val updatedAtText = "Updated at: "+ SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(Date(updatedAt*1000))
+                val updatedAtText = "Päivitetty: "+ SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(Date(updatedAt*1000))
                 val tempValue = main.getString("temp")+"°C"
-                val tempMin = "Min Temp: " + main.getString("temp_min")+"°C"
-                val tempMax = "Max Temp: " + main.getString("temp_max")+"°C"
-                val addressText = jsonObj.getString("name")+", "+sys.getString("country")
+                val tempMin = "Alin: " + main.getString("temp_min")+"°C"
+                val tempMax = "Ylin: " + main.getString("temp_max")+"°C"
+                val addressText = jsonObj.getString("name")
 
-                /* Populating extracted data into our views */
+                /* Laitetaan säädata kenttiin */
                 address.text = addressText
                 updated_at.text = updatedAtText
                 temp.text = tempValue
