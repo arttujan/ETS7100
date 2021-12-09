@@ -1,7 +1,9 @@
 package com.example.ets7100
-
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.search_fragment.*
 
 class MainActivity : AppCompatActivity() {
 
