@@ -68,7 +68,7 @@ class WeatherFragment : Fragment(){
                 val main = jsonObj.getJSONObject("main")
                 val sys = jsonObj.getJSONObject("sys")
                 val updatedAt:Long = jsonObj.getLong("dt")
-                val updatedAtText = "Päivitetty: "+ SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(Date(updatedAt*1000))
+                val updatedAtText = "Päivitetty: "+ SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.ENGLISH).format(Date(updatedAt*1000))
                 val tempValue = main.getString("temp")+"°C"
                 val tempMin = "Alin: " + main.getString("temp_min")+"°C"
                 val tempMax = "Ylin: " + main.getString("temp_max")+"°C"
@@ -80,9 +80,6 @@ class WeatherFragment : Fragment(){
                 temp.text = tempValue
                 temp_min.text = tempMin
                 temp_max.text = tempMax
-
-                /* Views populated, Hiding the loader, Showing the main design */
-
 
             } catch (e: Exception) {
                 Log.d("virhe","VIRHE")
