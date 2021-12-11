@@ -7,12 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.search_fragment.button
-import kotlinx.android.synthetic.main.search_fragment.editText
+import kotlinx.android.synthetic.main.search_fragment.*
 
 class SearchFragment : Fragment(){
 
+    private lateinit var comm: Communicator
     private val TAG = "SearchFragment"
 
     override fun onAttach(context: Context) {
@@ -23,15 +25,6 @@ class SearchFragment : Fragment(){
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d(TAG, "onCreate")
         super.onCreate(savedInstanceState)
-
-        val editText: EditText? = editText
-        var paikkakunta = ""
-        this.button?.setOnClickListener {
-            if (editText != null) {
-                editText.text.toString().also { paikkakunta = it }
-                Log.d("paikkakunta", paikkakunta)
-            }
-        }
     }
 
     override fun onCreateView(
@@ -41,6 +34,16 @@ class SearchFragment : Fragment(){
     ): View? {
         Log.d(TAG, "onCreateView")
         return inflater!!.inflate(R.layout.search_fragment,container,false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        comm = requireActivity() as Communicator
+        btnSend.setOnClickListener { view ->
+            val paikkakunta = editText.text.toString()
+            comm.passDataCom(editText.text.toString())
+            Log.d("VALITTU PAIKKAKUNTA", paikkakunta)
+        }
     }
 
 }

@@ -1,5 +1,6 @@
 package com.example.ets7100
 
+import android.R.attr
 import android.content.Context
 import android.os.AsyncTask
 import android.os.Bundle
@@ -13,11 +14,16 @@ import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlinx.android.synthetic.main.weather_fragment.*
+import android.R.attr.defaultValue
+
+
+
 
 class WeatherFragment : Fragment(){
     /*Paikkakuntatiedot ja API-key*/
     val TAG = "WeatherFragment"
-    val city: String = "kuopio"
+    private var inputText: String? = ""
+    var city: String? = "kuopio"
     val api: String = "8118ed6ee68db2debfaaa5a44c832918"
 
     override fun onAttach(context: Context) {
@@ -35,6 +41,11 @@ class WeatherFragment : Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        inputText = arguments?.getString("paikkakunta")
+        if (inputText != null) {
+            city = inputText.toString()
+        }
+        Log.d("PAIKKAKUNTA JOKA TUOTU SÄÄFRAGMENTTIIN", inputText.toString())
         WeatherTask().execute()
         Log.d(TAG,"onCreateView")
         return inflater!!.inflate(R.layout.weather_fragment,container,false)

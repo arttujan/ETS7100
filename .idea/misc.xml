@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Arttu/AndroidStudioProjects/ETS71002/app/src/main/res/layout/search_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/Arttu/AndroidStudioProjects/ETS71002/app/src/main/res/layout/weather_fragment.xml" value="0.1" />
         <entry key="..\:/Users/EppuS/StudioProjects/ETS7100/app/src/main/res/layout/activity_main.xml" value="0.21784420289855072" />
         <entry key="..\:/Users/EppuS/StudioProjects/ETS7100/app/src/main/res/layout/search_fragment.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/EppuS/StudioProjects/ETS7100/app/src/main/res/layout/weather_fragment.xml" value="0.2957427536231884" />

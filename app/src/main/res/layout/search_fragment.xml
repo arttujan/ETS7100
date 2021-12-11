@@ -10,7 +10,7 @@
         android:id="@+id/editText"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_above="@id/button"
+        android:layout_above="@id/btnSend"
         android:text=""
         android:hint="Hae paikkakunnalla..."
         tools:ignore="MissingConstraints"
@@ -18,7 +18,7 @@
         tools:layout_editor_absoluteY="340dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnSend"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@null"

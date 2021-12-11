@@ -1,11 +1,8 @@
 package com.example.ets7100
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.search_fragment.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), Communicator {
 
     private val manager = supportFragmentManager
 
@@ -14,6 +11,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         showWeatherFragment()
         showSearchFragment()
+        passDataCom(editTextInput = String.toString())
     }
 
     private fun showWeatherFragment() {
@@ -32,5 +30,15 @@ class MainActivity : AppCompatActivity() {
         transaction.commit()
     }
 
+    override fun passDataCom(editTextInput: String) {
+        val transaction = manager.beginTransaction()
+        val bundle = Bundle()
+        bundle.putString("paikkakunta", editTextInput)
+        val fragment = WeatherFragment()
+        fragment.arguments = bundle
+        transaction.replace(R.id.weather_fragment_holder, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
 
+    }
 }
