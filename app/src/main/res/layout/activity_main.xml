@@ -5,13 +5,15 @@
     android:id="@+id/main_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="50dp"
+    android:paddingBottom="50dp"
     android:background="@drawable/bg_gradient">
 
 
     <FrameLayout
         android:id="@+id/weather_fragment_holder"
         android:layout_width="365dp"
-        android:layout_height="600dp"
+        android:layout_height="450dp"
         android:layout_marginBottom="11dp"
         app:layout_constraintBottom_toTopOf="@+id/search_fragment_holder"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,6 +25,8 @@
         android:id="@+id/search_fragment_holder"
         android:layout_width="365dp"
         android:layout_height="80dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
